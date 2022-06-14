@@ -1,8 +1,8 @@
 version: "3.4"
 services:
-  rpg-tha-loft:
+  cybersecurity-fiap:
     tty: true
-    image: "eduardomatoss/rpg-tha-loft"
+    image: "eduardomatoss/cybersecurity-fiap"
     stdin_open: true
     build:
       context: .

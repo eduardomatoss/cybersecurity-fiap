@@ -1,0 +1,14 @@
+version: "3.4"
+services:
+  rpg-tha-loft:
+    tty: true
+    image: "eduardomatoss/rpg-tha-loft"
+    stdin_open: true
+    build:
+      context: .
+      target: "development"
+    env_file: .env
+    volumes:
+      - ".:/app"
+    ports:
+      - "8000:8000"

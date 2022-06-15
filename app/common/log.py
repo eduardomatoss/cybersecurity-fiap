@@ -69,7 +69,7 @@ class LogFormatter(Formatter):
     def format(self, record):
         log = {
             "timestamp": record.created,
-            "_application": "rpg-tha-loft",
+            "_application": "cybersecurity-fiap",
             "_environment": self._env,
             "_log_type": "application",
             "host": self._host,

@@ -3,3 +3,11 @@ application_name="Challenge Sprint - Cyber Security"
 application_description="API used for academic purposes"
 default_log_level="INFO"
 default_access_log="True"
+
+[test]
+
+[qa]
+
+[prod]
+default_access_log="False"
+sentry_dsn=""

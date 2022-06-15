@@ -13,7 +13,12 @@
             "program": "${workspaceFolder}/run.py",
             "console": "integratedTerminal",
             "env": {
-                "ENV_FOR_DYNACONF": "development"
+                "ENV_FOR_DYNACONF": "development",
+                "DATABASE_URL": "",
+                "DATABASE_NAME": "",
+                "DATABASE_USER": "",
+                "DATABASE_PASSWORD": "",
+                "DATABASE_PORT": "",
             }
         }
     ]
@@ -39,7 +44,12 @@
                 "1"
             ],
             "env": {
-                "ENV_FOR_DYNACONF": "development"
+                "ENV_FOR_DYNACONF": "development",
+                "DATABASE_URL": "",
+                "DATABASE_NAME": "",
+                "DATABASE_USER": "",
+                "DATABASE_PASSWORD": "",
+                "DATABASE_PORT": "",
             },
             "jinja": true
         }

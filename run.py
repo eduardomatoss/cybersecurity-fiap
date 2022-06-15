@@ -18,7 +18,7 @@ if __name__ == "__main__":
         "run:application",
         host="0.0.0.0",
         port=8000,
-        workers=1,
+        workers=4,
         log_level=get_application_log_level().lower(),
         access_log=get_application_access_log(),
     )

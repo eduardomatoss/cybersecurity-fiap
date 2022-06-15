@@ -24,6 +24,7 @@ ignore_errors = True
 
 omit =
     app/common/log.py
+    app/database/connection.py
     run.py
 
 [html]

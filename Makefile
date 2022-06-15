@@ -12,8 +12,8 @@ local/install: generate-default-env-file
 	pipenv install --dev --skip-lock
 
 local/lint:
-	flake8 app/
 	black app/
+	flake8 app/
 
 local/check-packages:
 	pipenv check --system -e PIPENV_PYUP_API_KEY=""
@@ -47,8 +47,8 @@ docker/down:
 	CURRENT_UID=${DOCKER_USER} docker-compose down --remove-orphans
 
 docker/lint:
-	CURRENT_UID=${DOCKER_USER} docker-compose run ${APP_NAME} flake8 app/
 	CURRENT_UID=${DOCKER_USER} docker-compose run ${APP_NAME} black app/
+	CURRENT_UID=${DOCKER_USER} docker-compose run ${APP_NAME} flake8 app/
 
 docker/check-packages:
 	CURRENT_UID=${DOCKER_USER} docker-compose run -e PIPENV_PYUP_API_KEY="" ${APP_NAME} pipenv check --system

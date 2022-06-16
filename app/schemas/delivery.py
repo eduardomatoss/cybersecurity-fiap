@@ -1,4 +1,10 @@
+from typing import Optional
+
 from pydantic import BaseModel, Field
+
+from app.schemas.buyer import BuyerResponse
+from app.schemas.deliveryman import DeliverymanResponse
+from app.schemas.product import ProductResponse
 
 
 class DeliveryBase(BaseModel):
@@ -13,6 +19,9 @@ class DeliveryBase(BaseModel):
 
 class DeliveryResponse(DeliveryBase):
     id: int
+    buyer: Optional[BuyerResponse]
+    deliveryman: Optional[DeliverymanResponse]
+    product: Optional[ProductResponse]
 
     class Config:
         orm_mode = True

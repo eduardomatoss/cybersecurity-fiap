@@ -10,6 +10,7 @@ from app.routers.delivery import (
     get_delivery_by_id,
     create_delivery,
     update_delivery,
+    get_delivery_by_buyer_id,
 )
 
 
@@ -100,3 +101,19 @@ class DeliveryRouterTest(TestCase):
         get_db_mock.query(DeliveryModel).get = MagicMock(return_value=None)
         with pytest_raises(HTTPException):
             update_delivery(2, self.model_request, get_db_mock)
+
+    def test_when_I_call_get_delivery_by_buyer_id_should_be_success(self, get_db_mock):
+        get_db_mock = get_db_mock.return_value
+        get_db_mock.query(DeliveryModel).filter_by().all = MagicMock(
+            return_value=[self.model_response]
+        )
+        response = get_delivery_by_buyer_id(1, get_db_mock)
+        self.assertEqual(response, [self.model_response])
+
+    def test_when_I_call_get_delivery_by_buyer_id_should_be_404_exception(
+        self, get_db_mock
+    ):
+        get_db_mock = get_db_mock.return_value
+        get_db_mock.query(DeliveryModel).filter_by().all = MagicMock(return_value=None)
+        with pytest_raises(HTTPException):
+            get_delivery_by_buyer_id(1, get_db_mock)

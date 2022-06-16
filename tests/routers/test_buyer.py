@@ -14,7 +14,7 @@ from app.routers.buyer import (
 
 
 @patch("app.routers.buyer.get_db")
-class DeliveryRouterTest(TestCase):
+class BuyerRouterTest(TestCase):
     def setUp(self):
         self.model_request = BuyerRequest(
             name="Batata",

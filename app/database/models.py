@@ -21,7 +21,7 @@ class Buyer(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(50))
     cpf = Column(String(11))
-    cep = Column(String(11))
+    cep = Column(String(8))
     address_number = Column(Integer)
     address_lat = Column(Float)
     address_long = Column(Float)

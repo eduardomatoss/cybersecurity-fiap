@@ -13,7 +13,7 @@ from app.routers.buyer import (
 )
 
 
-@patch("app.routers.delivery.get_db")
+@patch("app.routers.buyer.get_db")
 class DeliveryRouterTest(TestCase):
     def setUp(self):
         self.model_request = BuyerRequest(

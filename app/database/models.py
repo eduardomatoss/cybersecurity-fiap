@@ -4,7 +4,10 @@ from sqlalchemy import (
     Integer,
     Float,
     String,
+    ForeignKey,
 )
+from sqlalchemy.orm import relationship
+
 
 Base = declarative_base()
 
@@ -38,10 +41,16 @@ class Product(Base):
 class Delivery(Base):
     __tablename__ = "delivery"
     id = Column(Integer, primary_key=True, index=True)
-    id_buyer = Column(Integer)
-    id_product = Column(Integer)
-    id_deliveryman = Column(Integer)
+    id_buyer = Column(Integer, ForeignKey("buyer.id", name="fk_buyer_id"))
+    id_product = Column(Integer, ForeignKey("product.id", name="fk_product_id"))
+    id_deliveryman = Column(
+        Integer, ForeignKey("deliveryman.id", name="fk_deliveryman_id")
+    )
     deliveryman_lat = Column(Float)
     deliveryman_long = Column(Float)
     receiver_cpf = Column(String(11))
     status_delivery = Column(String(50))
+
+    product = relationship("Product")
+    buyer = relationship("Buyer")
+    deliveryman = relationship("Deliveryman")

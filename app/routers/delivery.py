@@ -82,3 +82,11 @@ def update_delivery(
     db.commit()
 
     return delivery_in_db
+
+
+@router.get("/{id_buyer}/buyer", response_model=List[DeliveryResponse])
+def get_delivery_by_buyer_id(id_buyer: int, db: Session = Depends(get_db)):
+    delivery_in_db = db.query(DeliveryModel).filter_by(id_buyer=id_buyer).all()
+    if delivery_in_db:
+        return delivery_in_db
+    raise HTTPException(status_code=404)

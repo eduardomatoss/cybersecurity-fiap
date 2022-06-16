@@ -116,4 +116,4 @@ class DeliveryRouterTest(TestCase):
         get_db_mock = get_db_mock.return_value
         get_db_mock.query(DeliveryModel).filter_by().all = MagicMock(return_value=None)
         with pytest_raises(HTTPException):
-            response = get_delivery_by_buyer_id(1, get_db_mock)
+            get_delivery_by_buyer_id(1, get_db_mock)

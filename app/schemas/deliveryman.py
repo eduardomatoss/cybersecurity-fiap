@@ -1,11 +1,12 @@
 from pydantic import BaseModel
 
 
-class UserBase(BaseModel):
+class DeliverymanBase(BaseModel):
     name: str
+    vehicle: str
 
 
-class UserResponse(UserBase):
+class DeliverymanResponse(DeliverymanBase):
     id: int
 
     class Config:

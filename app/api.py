@@ -6,7 +6,11 @@ from starlette_exporter import PrometheusMiddleware, handle_metrics
 
 from app.routers import root
 from app.routers import health_check
-from app.routers import users
+from app.routers import delivery
+from app.routers import product
+from app.routers import buyer
+from app.routers import deliveryman
+
 
 logger = getLogger()
 
@@ -32,4 +36,7 @@ app.include_router(health_check.router)
 
 app_v1.include_router(root.router, include_in_schema=False)
 app_v1.include_router(health_check.router, include_in_schema=False)
-app_v1.include_router(users.router, prefix="/users", tags=["users"])
+app_v1.include_router(delivery.router, prefix="/delivery", tags=["delivery"])
+app_v1.include_router(product.router, prefix="/product", tags=["product"])
+app_v1.include_router(buyer.router, prefix="/buyer", tags=["buyer"])
+app_v1.include_router(deliveryman.router, prefix="/deliveryman", tags=["deliveryman"])

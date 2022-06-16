@@ -4,6 +4,7 @@ from fastapi.testclient import TestClient
 
 from app.api import app
 
+
 class ApiTest(TestCase):
     def setUp(self):
         self.client_api = TestClient(app)

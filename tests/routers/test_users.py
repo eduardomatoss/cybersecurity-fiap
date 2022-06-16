@@ -1,9 +1,9 @@
 from unittest import TestCase
 from unittest.mock import MagicMock, patch
 
-from app.schemas.users import UserBase as UserRequest
+from app.schemas.delivery import UserBase as UserRequest
 from app.database.models import Users as UsersModel
-from app.routers.users import get_all_users, create_user
+from app.routers.delivery import get_all_users, create_user
 
 
 @patch("app.routers.users.get_db")
